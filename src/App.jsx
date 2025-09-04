@@ -1,4 +1,7 @@
-import React from "react";
+import CollegeDetails from "./components/College/CollegeDetails";
+import Dashboard from "./components/Dashboard/Dashboard";
+import LearningResources from "./components/LearningResouces";
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
     return (
