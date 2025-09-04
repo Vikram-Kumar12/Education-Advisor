@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+
+@font-face {
+    /* pass */
+    font-family: 'font1';
+    src: url('../public/assets/fonts/font1.woff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    /* pass */
+    font-family: 'font2';
+    src: url('../public/assets/fonts/font2.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    /* Pass */
+    font-family: 'font3';
+    src: url('../public/assets/fonts/font3.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
