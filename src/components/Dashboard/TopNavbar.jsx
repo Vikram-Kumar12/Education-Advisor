@@ -1,10 +1,9 @@
-import React from "react";
-import { User, Bell, Search, BookOpen } from "lucide-react";
+import { User} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const TopNavbar = () => {
   return (
-    <header className="bg-gray-900  p-4 flex items-center justify-between fixed top-0 left-0 right-0 z-50 h-20">
+    <header className="bg-gray-900  p-4 flex items-center justify-between fixed top-0 left-0 right-0 z-50 h-20 border-b border-gray-800">
       <div className="flex items-center">
         <h1 className="text-xl md:text-3xl font-bold text-white">
           GuideMeM<span className="text-orange-500">ate</span>

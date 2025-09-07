@@ -14,15 +14,10 @@ import {
   Target,
   Bookmark,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const ScienceStream = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const navigate = useNavigate();
-  const onBack = () => {
-    navigate("/quize-result");
-  };
 
   const science = {
     id: 1,
@@ -76,23 +71,8 @@ const ScienceStream = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff8000' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
-      {/* Glowing effects */}
-      <div className="absolute -top-20 -left-20 w-60 h-60 bg-orange-500 rounded-full filter blur-3xl opacity-20"></div>
-      <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-orange-600 rounded-full filter blur-3xl opacity-20"></div>
-
-      <div className="max-w-6xl mx-auto w-full relative z-10">
+    <div className="min-h-screen w-full relative overflow-hidden">
+      <div className="relative z-10">
         {/* Header with back button and actions */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,14 +82,6 @@ const ScienceStream = () => {
         >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center">
-              <button
-                onClick={onBack}
-                className="flex items-center text-orange-400 hover:text-orange-300 mr-4 transition-colors cursor-pointer"
-              >
-                <ArrowLeft className="h-5 w-5 mr-1" />
-                Back
-              </button>
-              <div className="h-6 w-1 bg-orange-500 mr-4"></div>
               <div>
                 <span className="inline-block px-3 py-1 bg-orange-900/30 text-orange-300 rounded-full text-sm font-medium mb-2 border border-orange-500/30">
                   {science.stream}
@@ -119,22 +91,10 @@ const ScienceStream = () => {
                 </h1>
               </div>
             </div>
-
-            {/* <div className="flex items-center gap-2">
-              <button 
-                onClick={() => setIsBookmarked(!isBookmarked)}
-                className={`p-2 rounded-full ${isBookmarked ? 'bg-orange-900/30 text-orange-400 border border-orange-500/30' : 'bg-gray-800 text-gray-400 border border-gray-700'} hover:bg-orange-900/20 transition-colors`}
-              >
-                <Bookmark className="h-5 w-5" fill={isBookmarked ? "currentColor" : "none"} />
-              </button>
-              <button className="p-2 rounded-full bg-gray-800 text-gray-400 border border-gray-700 hover:bg-gray-700 transition-colors">
-                <Share2 className="h-5 w-5" />
-              </button>
-            </div> */}
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1  gap-6">
           {/* Left Column - Course Info */}
           <div className="lg:col-span-2">
             {/* Navigation Tabs */}
@@ -144,11 +104,11 @@ const ScienceStream = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="bg-gray-900 rounded-xl shadow-lg p-4 mb-6 overflow-x-auto hide-scrollbar border border-orange-500/20"
             >
-              <div className="flex flex-nowrap gap-1 md:gap-2">
+              <div className="flex flex-nowrap items-center justify-between gap-1 md:gap-2">
                 {/* Overview */}
                 <button
                   onClick={() => setActiveTab("overview")}
-                  className={`flex items-center px-3 py-2 rounded-lg font-medium whitespace-nowrap border ${
+                  className={`flex items-center px-5 py-2 rounded-lg font-medium whitespace-nowrap border ${
                     activeTab === "overview"
                       ? "bg-orange-900/30 text-orange-400 border-orange-500/50"
                       : "text-gray-400 hover:bg-gray-800 border-gray-700"
@@ -160,7 +120,7 @@ const ScienceStream = () => {
                 {/* Career Paths */}
                 <button
                   onClick={() => setActiveTab("careers")}
-                  className={`flex items-center px-3 py-2 rounded-lg font-medium whitespace-nowrap border ${
+                  className={`flex items-center px-5 py-2 rounded-lg font-medium whitespace-nowrap border ${
                     activeTab === "careers"
                       ? "bg-orange-900/30 text-orange-400 border-orange-500/50"
                       : "text-gray-400 hover:bg-gray-800 border-gray-700"
@@ -172,7 +132,7 @@ const ScienceStream = () => {
                 {/* Entrance Exams */}
                 <button
                   onClick={() => setActiveTab("exams")}
-                  className={`flex items-center px-3 py-2 rounded-lg font-medium whitespace-nowrap border ${
+                  className={`flex items-center px-5 py-2 rounded-lg font-medium whitespace-nowrap border ${
                     activeTab === "exams"
                       ? "bg-orange-900/30 text-orange-400 border-orange-500/50"
                       : "text-gray-400 hover:bg-gray-800 border-gray-700"
@@ -184,7 +144,7 @@ const ScienceStream = () => {
                 {/* Related Skills */}
                 <button
                   onClick={() => setActiveTab("skills")}
-                  className={`flex items-center px-3 py-2 rounded-lg font-medium whitespace-nowrap border ${
+                  className={`flex items-center px-5 py-2 rounded-lg font-medium whitespace-nowrap border ${
                     activeTab === "skills"
                       ? "bg-orange-900/30 text-orange-400 border-orange-500/50"
                       : "text-gray-400 hover:bg-gray-800 border-gray-700"
@@ -196,7 +156,7 @@ const ScienceStream = () => {
                 {/* Salary */}
                 <button
                   onClick={() => setActiveTab("salary")}
-                  className={`flex items-center px-4 py-2 rounded-lg font-medium whitespace-nowrap border ${
+                  className={`flex items-center px-5 py-2 rounded-lg font-medium whitespace-nowrap border ${
                     activeTab === "salary"
                       ? "bg-orange-900/30 text-orange-400 border-orange-500/50"
                       : "text-gray-400 hover:bg-gray-800 border-gray-700"

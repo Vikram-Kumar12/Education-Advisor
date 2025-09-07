@@ -140,32 +140,7 @@ const CollegeDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Animated background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-blue-200 opacity-20"
-            style={{
-              width: Math.random() * 100 + 50,
-              height: Math.random() * 100 + 50,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, Math.random() * 30 - 15],
-              x: [0, Math.random() * 30 - 15],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
-        ))}
-      </div>
-
+    <div className="min-h-screen bg-black text-white">
       {/* Banner */}
       <motion.div 
         className="relative h-80 w-full overflow-hidden"
@@ -174,7 +149,7 @@ const CollegeDetails = () => {
         transition={{ duration: 0.7 }}
       >
         <img src={college.image} alt="college" className="object-cover w-full h-full" />
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-900 to-purple-900 bg-opacity-70 flex items-center justify-center">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-orange-900 bg-opacity-80 flex items-center justify-center">
           <div className="text-center text-white px-4">
             <motion.h1 
               className="text-4xl md:text-5xl font-bold mb-2"
@@ -185,7 +160,7 @@ const CollegeDetails = () => {
               {college.name}
             </motion.h1>
             <motion.p 
-              className="text-xl max-w-3xl mx-auto"
+              className="text-xl max-w-3xl mx-auto text-orange-200"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.7 }}
@@ -205,95 +180,95 @@ const CollegeDetails = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
-              <h2 className="text-xl font-bold mb-4 text-gray-800 border-b pb-2">College Overview</h2>
+            <div className="bg-gray-900 rounded-2xl shadow-xl p-6 mb-6 border border-gray-800">
+              <h2 className="text-xl font-bold mb-4 text-orange-400 border-b border-orange-800 pb-2">College Overview</h2>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <div className="bg-blue-100 p-3 rounded-full mr-3">
-                    <span className="text-blue-600">🏛️</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">🏛️</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Type</p>
-                    <p className="font-medium">{college.type}</p>
+                    <p className="text-sm text-gray-400">Type</p>
+                    <p className="font-medium text-white">{college.type}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="bg-green-100 p-3 rounded-full mr-3">
-                    <span className="text-green-600">📊</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">📊</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Ranking</p>
-                    <p className="font-medium">{college.ranking}</p>
+                    <p className="text-sm text-gray-400">Ranking</p>
+                    <p className="font-medium text-white">{college.ranking}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="bg-purple-100 p-3 rounded-full mr-3">
-                    <span className="text-purple-600">📏</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">📏</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Campus Size</p>
-                    <p className="font-medium">{college.campusSize}</p>
+                    <p className="text-sm text-gray-400">Campus Size</p>
+                    <p className="font-medium text-white">{college.campusSize}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="bg-yellow-100 p-3 rounded-full mr-3">
-                    <span className="text-yellow-600">👨‍🏫</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">👨‍🏫</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Faculty</p>
-                    <p className="font-medium">{college.faculty}</p>
+                    <p className="text-sm text-gray-400">Faculty</p>
+                    <p className="font-medium text-white">{college.faculty}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="bg-pink-100 p-3 rounded-full mr-3">
-                    <span className="text-pink-600">👨‍🎓</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">👨‍🎓</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Students</p>
-                    <p className="font-medium">{college.students}</p>
+                    <p className="text-sm text-gray-400">Students</p>
+                    <p className="font-medium text-white">{college.students}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl p-6">
-              <h2 className="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Contact Information</h2>
+            <div className="bg-gray-900 rounded-2xl shadow-xl p-6 border border-gray-800">
+              <h2 className="text-xl font-bold mb-4 text-orange-400 border-b border-orange-800 pb-2">Contact Information</h2>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className="bg-blue-100 p-3 rounded-full mr-3">
-                    <span className="text-blue-600">📍</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">📍</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Address</p>
-                    <p className="font-medium">{college.name}</p>
-                    <p className="text-sm">{college.address}</p>
+                    <p className="text-sm text-gray-400">Address</p>
+                    <p className="font-medium text-white">{college.name}</p>
+                    <p className="text-sm text-gray-300">{college.address}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="bg-green-100 p-3 rounded-full mr-3">
-                    <span className="text-green-600">📧</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">📧</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Email</p>
-                    <a href={`mailto:${college.email}`} className="font-medium text-blue-600 hover:underline">{college.email}</a>
+                    <p className="text-sm text-gray-400">Email</p>
+                    <a href={`mailto:${college.email}`} className="font-medium text-orange-400 hover:underline">{college.email}</a>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="bg-purple-100 p-3 rounded-full mr-3">
-                    <span className="text-purple-600">📞</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">📞</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Phone</p>
-                    <a href={`tel:${college.phone}`} className="font-medium text-blue-600 hover:underline">{college.phone}</a>
+                    <p className="text-sm text-gray-400">Phone</p>
+                    <a href={`tel:${college.phone}`} className="font-medium text-orange-400 hover:underline">{college.phone}</a>
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="bg-yellow-100 p-3 rounded-full mr-3">
-                    <span className="text-yellow-600">🌐</span>
+                  <div className="bg-orange-900 bg-opacity-50 p-3 rounded-full mr-3">
+                    <span className="text-orange-400">🌐</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Website</p>
-                    <a href={college.website} target="_blank" rel="noreferrer" className="font-medium text-blue-600 hover:underline">Visit Website</a>
+                    <p className="text-sm text-gray-400">Website</p>
+                    <a href={college.website} target="_blank" rel="noreferrer" className="font-medium text-orange-400 hover:underline">Visit Website</a>
                   </div>
                 </div>
               </div>
@@ -304,7 +279,7 @@ const CollegeDetails = () => {
           <div className="w-full lg:w-2/3">
             {/* Tabs */}
             <motion.div 
-              className="flex gap-2 mb-6 bg-white rounded-2xl shadow-xl p-2"
+              className="flex gap-2 mb-6 bg-gray-900 rounded-2xl shadow-xl p-2 border border-gray-800"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -320,8 +295,8 @@ const CollegeDetails = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold transition-all ${
                     activeTab === tab.id
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-gradient-to-r from-orange-600 to-orange-800 text-white shadow-md"
+                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -337,7 +312,7 @@ const CollegeDetails = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
-                className="bg-white rounded-2xl shadow-xl p-6 mb-6"
+                className="bg-gray-900 rounded-2xl shadow-xl p-6 mb-6 border border-gray-800"
                 variants={tabVariants}
                 initial="hidden"
                 animate="visible"
@@ -346,12 +321,12 @@ const CollegeDetails = () => {
               >
                 {activeTab === "courses" && (
                   <div>
-                    <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">Offered Courses</h3>
+                    <h3 className="text-2xl font-bold mb-6 text-orange-400 border-b border-orange-800 pb-2">Offered Courses</h3>
                     <div className="space-y-4">
                       {college.courses.map((course) => (
                         <motion.div
                           key={course.id}
-                          className="border border-gray-200 rounded-2xl p-5 hover:shadow-lg transition-all overflow-hidden"
+                          className="border border-gray-800 rounded-2xl p-5 hover:shadow-lg transition-all overflow-hidden bg-gray-800"
                           whileHover={{ y: -3 }}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -359,29 +334,29 @@ const CollegeDetails = () => {
                         >
                           <div className="flex justify-between items-start mb-3">
                             <div>
-                              <h4 className="text-xl font-bold text-gray-800">{course.title}</h4>
+                              <h4 className="text-xl font-bold text-white">{course.title}</h4>
                               <div className="flex flex-wrap gap-2 mt-2">
-                                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">{course.duration}</span>
-                                <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">{course.seats} Seats</span>
-                                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">{course.fees}</span>
+                                <span className="bg-orange-900 text-orange-200 text-xs px-3 py-1 rounded-full">{course.duration}</span>
+                                <span className="bg-orange-900 text-orange-200 text-xs px-3 py-1 rounded-full">{course.seats} Seats</span>
+                                <span className="bg-orange-900 text-orange-200 text-xs px-3 py-1 rounded-full">{course.fees}</span>
                               </div>
                             </div>
                             <button
                               onClick={() => setExpandedCourse(expandedCourse === course.id ? null : course.id)}
-                              className="text-blue-600 hover:text-blue-800 font-medium"
+                              className="text-orange-500 hover:text-orange-400 font-medium"
                             >
                               {expandedCourse === course.id ? 'Show Less' : 'View Details'}
                             </button>
                           </div>
                           
-                          <p className="text-gray-600 mb-3">{course.description}</p>
+                          <p className="text-gray-300 mb-3">{course.description}</p>
                           
                           <div className="flex flex-wrap gap-2 mb-3">
                             {course.highlights.slice(0, 3).map((skill, i) => (
-                              <span key={i} className="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">{skill}</span>
+                              <span key={i} className="bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-full">{skill}</span>
                             ))}
                             {course.highlights.length > 3 && (
-                              <span className="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">
+                              <span className="bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-full">
                                 +{course.highlights.length - 3} more
                               </span>
                             )}
@@ -394,23 +369,23 @@ const CollegeDetails = () => {
                                 animate={{ opacity: 1, height: 'auto' }}
                                 exit={{ opacity: 0, height: 0 }}
                                 transition={{ duration: 0.3 }}
-                                className="mt-4 pt-4 border-t border-gray-200"
+                                className="mt-4 pt-4 border-t border-gray-700"
                               >
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                   <div>
-                                    <h5 className="font-semibold text-gray-700 mb-2">Eligibility</h5>
-                                    <p className="text-sm text-gray-600">{course.eligibility}</p>
+                                    <h5 className="font-semibold text-orange-400 mb-2">Eligibility</h5>
+                                    <p className="text-sm text-gray-300">{course.eligibility}</p>
                                   </div>
                                   <div>
-                                    <h5 className="font-semibold text-gray-700 mb-2">Placement</h5>
-                                    <p className="text-sm text-gray-600">{course.placement}</p>
+                                    <h5 className="font-semibold text-orange-400 mb-2">Placement</h5>
+                                    <p className="text-sm text-gray-300">{course.placement}</p>
                                   </div>
                                 </div>
                                 <div className="mt-4">
-                                  <h5 className="font-semibold text-gray-700 mb-2">Specializations</h5>
+                                  <h5 className="font-semibold text-orange-400 mb-2">Specializations</h5>
                                   <div className="flex flex-wrap gap-2">
                                     {course.highlights.map((skill, i) => (
-                                      <span key={i} className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">{skill}</span>
+                                      <span key={i} className="bg-orange-900 text-orange-200 text-xs px-3 py-1 rounded-full">{skill}</span>
                                     ))}
                                   </div>
                                 </div>
@@ -425,10 +400,10 @@ const CollegeDetails = () => {
 
                 {activeTab === "cutoff" && (
                   <div>
-                    <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">Eligibility & Cut-off</h3>
-                    <div className="bg-blue-50 rounded-xl p-5 mb-6">
-                      <h4 className="text-lg font-semibold mb-2 text-blue-800">General Eligibility Criteria</h4>
-                      <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <h3 className="text-2xl font-bold mb-6 text-orange-400 border-b border-orange-800 pb-2">Eligibility & Cut-off</h3>
+                    <div className="bg-orange-900 bg-opacity-30 rounded-xl p-5 mb-6 border border-orange-800">
+                      <h4 className="text-lg font-semibold mb-2 text-orange-300">General Eligibility Criteria</h4>
+                      <ul className="list-disc list-inside text-gray-300 space-y-1">
                         <li>Minimum 75% aggregate in 10+2 examination with Physics, Chemistry, and Mathematics</li>
                         <li>Valid JEE Main score</li>
                         <li>Age limit: 17-25 years</li>
@@ -436,25 +411,25 @@ const CollegeDetails = () => {
                       </ul>
                     </div>
                     
-                    <h4 className="text-lg font-semibold mb-4 text-gray-800">Previous Year Cut-off Percentiles</h4>
+                    <h4 className="text-lg font-semibold mb-4 text-orange-400">Previous Year Cut-off Percentiles</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {Object.entries(college.cutoff).map(([course, cutoff], index) => (
                         <motion.div 
                           key={course}
-                          className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm"
+                          className="bg-gray-800 border border-gray-700 rounded-xl p-4 shadow-sm"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
                         >
-                          <h5 className="font-semibold text-gray-800">{course}</h5>
+                          <h5 className="font-semibold text-white">{course}</h5>
                           <div className="mt-2 flex items-center">
-                            <div className="w-full bg-gray-200 rounded-full h-2.5">
+                            <div className="w-full bg-gray-700 rounded-full h-2.5">
                               <div 
-                                className="bg-gradient-to-r from-blue-500 to-purple-600 h-2.5 rounded-full" 
+                                className="bg-gradient-to-r from-orange-500 to-orange-700 h-2.5 rounded-full" 
                                 style={{ width: `${parseFloat(cutoff)}%` }}
                               ></div>
                             </div>
-                            <span className="ml-2 text-sm font-bold text-blue-600">{cutoff}</span>
+                            <span className="ml-2 text-sm font-bold text-orange-400">{cutoff}</span>
                           </div>
                         </motion.div>
                       ))}
@@ -464,22 +439,22 @@ const CollegeDetails = () => {
 
                 {activeTab === "facilities" && (
                   <div>
-                    <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">Campus Facilities</h3>
+                    <h3 className="text-2xl font-bold mb-6 text-orange-400 border-b border-orange-800 pb-2">Campus Facilities</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {college.facilities.map((facility, index) => (
                         <motion.div 
                           key={index}
-                          className="bg-gray-50 rounded-xl p-5 border border-gray-200"
+                          className="bg-gray-800 rounded-xl p-5 border border-gray-700"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
                           whileHover={{ y: -3 }}
                         >
                           <div className="flex items-start">
-                            <span className="text-3xl mr-4">{facility.icon}</span>
+                            <span className="text-3xl mr-4 text-orange-400">{facility.icon}</span>
                             <div>
-                              <h4 className="text-lg font-semibold text-gray-800 mb-2">{facility.title}</h4>
-                              <p className="text-gray-600">{facility.description}</p>
+                              <h4 className="text-lg font-semibold text-white mb-2">{facility.title}</h4>
+                              <p className="text-gray-300">{facility.description}</p>
                             </div>
                           </div>
                         </motion.div>
@@ -490,12 +465,12 @@ const CollegeDetails = () => {
 
                 {activeTab === "gallery" && (
                   <div>
-                    <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">Campus Gallery</h3>
+                    <h3 className="text-2xl font-bold mb-6 text-orange-400 border-b border-orange-800 pb-2">Campus Gallery</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {college.gallery.map((image, index) => (
                         <motion.div 
                           key={index}
-                          className="rounded-xl overflow-hidden shadow-md"
+                          className="rounded-xl overflow-hidden shadow-md border border-gray-800"
                           whileHover={{ scale: 1.03 }}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}

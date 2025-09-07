@@ -3,7 +3,6 @@ import ExploreStreams from "../components/QuizPage/ExploreStreams";
 import QuizIntroduction from "../components/QuizPage/QuizIntroduction";
 import QuizQuestion from "../components/QuizPage/QuizQuestion";
 import QuizResults from "../components/QuizPage/QuizResults";
-import LearningResources from "../components/LearningResouces";
 
 
 const QuizePage = () => {

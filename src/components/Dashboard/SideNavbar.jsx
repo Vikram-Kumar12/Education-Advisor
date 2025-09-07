@@ -39,7 +39,8 @@ const SideNavbar = ({
 
       {/* Sidebar */}
       <aside
-        className={`fixed lg:static top-20 left-0 h-[calc(100vh-5rem)] w-64 bg-gray-900  z-40 transform transition-transform duration-300 ease-in-out ${
+      // h-[calc(100vh-5rem)]
+        className={`fixed lg:static top-20 left-0   w-64 bg-gray-900  z-40 transform transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         }`}
       >
