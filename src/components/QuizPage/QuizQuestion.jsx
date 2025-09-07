@@ -1,78 +1,130 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, HelpCircle, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getQuiz ,submitQuiz} from "../../Services/Quiz";
 
 const QuizQuestion = () => {
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [questions, setQuestions] = useState(null);
+  const [answers, setAnswers] = useState([]);
   const totalQuestions = 10;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchQuiz = async () => {
+      try {
+        const response = await getQuiz();
+        console.log("Quiz data:", response.data);
+        const q = response.data.data.questions;
+        setQuestions(q);
+
+        console.log(q);
+      } catch (error) {
+        console.error("Error fetching quiz:", error);
+      }
+    };
+
+    fetchQuiz();
+  }, []);
 
   // Sample quiz questions data
-  const questions = [
-    {
-      id: 1,
-      question: "Which activities do you enjoy in your free time?",
-      options: [
-        "Experiments and discovering how things work",
-        "Reading books, writing stories or poetry",
-        "Managing money, planning budgets or business ideas",
-        "Building, fixing or creating things with hands",
-      ],
-    },
-    {
-      id: 2,
-      question: "How do you prefer to solve problems?",
-      options: [
-        "Through logical analysis and systematic approach",
-        "Through creative thinking and discussion",
-        "Through practical planning and resource management",
-        "Through hands-on experimentation and trial-error",
-      ],
-    },
-    {
-      id: 3,
-      question: "What subjects do you enjoy most?",
-      options: [
-        "Math & Science",
-        "Reading & Writing",
-        "Business & Commerce",
-        "Practical & Technical Skills",
-      ],
-    },
-    {
-      id: 4,
-      question: "Which work environment appeals to you most?",
-      options: [
-        "Research lab or technology company",
-        "Library, media house or creative agency",
-        "Corporate office or financial institution",
-        "Workshop, field site or production facility",
-      ],
-    },
-  ];
+  // const questions = [
+  //   {
+  //     id: 1,
+  //     question: "Which activities do you enjoy in your free time?",
+  //     options: [
+  //       "Experiments and discovering how things work",
+  //       "Reading books, writing stories or poetry",
+  //       "Managing money, planning budgets or business ideas",
+  //       "Building, fixing or creating things with hands",
+  //     ],
+  //   },
+  //   {
+  //     id: 2,
+  //     question: "How do you prefer to solve problems?",
+  //     options: [
+  //       "Through logical analysis and systematic approach",
+  //       "Through creative thinking and discussion",
+  //       "Through practical planning and resource management",
+  //       "Through hands-on experimentation and trial-error",
+  //     ],
+  //   },
+  //   {
+  //     id: 3,
+  //     question: "What subjects do you enjoy most?",
+  //     options: [
+  //       "Math & Science",
+  //       "Reading & Writing",
+  //       "Business & Commerce",
+  //       "Practical & Technical Skills",
+  //     ],
+  //   },
+  //   {
+  //     id: 4,
+  //     question: "Which work environment appeals to you most?",
+  //     options: [
+  //       "Research lab or technology company",
+  //       "Library, media house or creative agency",
+  //       "Corporate office or financial institution",
+  //       "Workshop, field site or production facility",
+  //     ],
+  //   },
+  // ];
+
+  if (!questions) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center p-4 text-white">
+        Loading quiz... ⏳
+      </div>
+    );
+  }
 
   const question =
-    questions.find((q) => q.id === currentQuestion) || questions[2];
+    questions.find((q) => q._id === currentQuestion) || questions[2];
 
   const handleOptionSelect = (optionIndex) => {
     setSelectedOption(optionIndex);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (selectedOption !== null) {
+      //  Store the answers
+    const selectedOptionText = Object.values(question.options)[selectedOption];
+      
+      // Update answers state with the selected option's text
+      const newAnswers = [...answers, selectedOptionText];
+      setAnswers(newAnswers);
+
       if (currentQuestion < totalQuestions) {
         setCurrentQuestion((prev) => prev + 1);
         setSelectedOption(null);
       } else {
         // Submit quiz logic here
         console.log("Quiz completed!");
+        console.log("Final Answers:", newAnswers);
+
+        try {
+          // Submit the final array of answers to the backend
+          const response = await submitQuiz({ answers: newAnswers });
+          console.log("Submission successful:", response.data);
+          // Redirect to dashboard or confirmation page
+          navigate('/dashboard');
+        } catch (error) {
+          console.error("Error submitting quiz:", error);
+        }
+
       }
     }
   };
 
   const handlePrevious = () => {
     if (currentQuestion > 1) {
+      // Remove the last answer when going back
+      setAnswers((prevAnswers) => prevAnswers.slice(0, prevAnswers.length - 1));
+
       setCurrentQuestion((prev) => prev - 1);
       setSelectedOption(null);
     }
@@ -160,7 +212,7 @@ const QuizQuestion = () => {
           {/* Options */}
           <div className="space-y-3 mb-8">
             <AnimatePresence>
-              {question.options.map((option, index) => (
+              {Object.values(question.options).map((option, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 10 }}

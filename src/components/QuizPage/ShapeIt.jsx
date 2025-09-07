@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { shape } from "../../Services/Quiz";
 
 const ShapeIt = () => {
   const [inputText, setInputText] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log("Submitted text:", inputText);
-    // Add your logic to process the input text
+
+    const dream = inputText
+    const response  = await shape({dream})
+    console.log(response.data.data.streams)
+    
+
   };
 
   return (

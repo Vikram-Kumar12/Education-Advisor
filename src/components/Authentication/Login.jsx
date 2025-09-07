@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Mail, Lock, BookOpen } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-
+import {loginUser} from "../../Services/userApiCalling"
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -20,9 +20,18 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate('/quize')
+
+    const response = await loginUser(formData)
+    if(response.data.success){
+      localStorage.setItem('token',response.data.token)
+      navigate('/quize')
+
+    }
+
+
+    
   };
 
   const togglePasswordVisibility = () => {
