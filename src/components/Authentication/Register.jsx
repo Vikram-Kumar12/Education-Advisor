@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff, Mail, Lock, User, MapPin, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {registerUser} from "../../Services/userApiCalling"
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    fullname: '',
     email: '',
     password: '',
     age: '',
     gender: '',
-    currentClass: '',
-    pincode: ''
+    status: '',
+   
   });
   const [showPassword, setShowPassword] = useState(false);
+  const Navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,10 +26,16 @@ const Register = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    const response = await registerUser(formData)
+
+    if(response.data.success){
+      localStorage.setItem('token',response.data.token)
+      Navigate('/quize')
+    }
+   
+
   };
 
   const togglePasswordVisibility = () => {
@@ -61,7 +70,7 @@ const Register = () => {
         <form onSubmit={handleSubmit} className="px-8 py-6">
           {/* Name */}
           <div className="mb-5">
-            <label htmlFor="fullName" className="block text-sm font-medium text-gray-300 mb-1">
+            <label htmlFor="fullname" className="block text-sm font-medium text-gray-300 mb-1">
               Enter your full name
             </label>
             <div className="relative">
@@ -70,9 +79,9 @@ const Register = () => {
               </div>
               <input
                 type="text"
-                id="fullName"
-                name="fullName"
-                value={formData.fullName}
+                id="fullname"
+                name="fullname"
+                value={formData.fullname}
                 onChange={handleChange}
                 className="w-full pl-10 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 outline-none  transition duration-200"
                 placeholder="John Doe"
@@ -181,14 +190,14 @@ const Register = () => {
           </div>
           {/* Class */}
           <div className="mb-5">
-            <label htmlFor="currentClass" className="block text-sm font-medium text-gray-300 mb-1">
+            <label htmlFor="status" className="block text-sm font-medium text-gray-300 mb-1">
               Current Class/Status
             </label>
             <div className="relative">
               <select
-                id="currentClass"
-                name="currentClass"
-                value={formData.currentClass}
+                id="status"
+                name="status"
+                value={formData.status}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white outline-none transition duration-200 appearance-none"
                 required
@@ -206,7 +215,7 @@ const Register = () => {
             </div>
           </div>
           {/* Pincode */}
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <label htmlFor="pincode" className="block text-sm font-medium text-gray-300 mb-1">
               Enter your 6-digit PIN code
             </label>
@@ -235,7 +244,7 @@ const Register = () => {
                 Detect Location
               </button>
             </div>
-          </div>
+          </div> */}
           {/* Submit button */}
           <motion.button
             whileHover={{ scale: 1.02 }}
