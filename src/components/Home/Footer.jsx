@@ -1,47 +1,81 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+
 const Footer = () => {
+  const text = "GuideMeMate";
+  const [key, setKey] = useState(0);
+  
+  // Reset animation every 5 seconds to create infinite loop
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setKey(prevKey => prevKey + 1);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  // Animation variants for each character
+  const characterVariants = {
+    hidden: { 
+      y: -100, 
+      opacity: 0,
+      rotate: -10
+    },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      rotate: 0,
+      transition: {
+        delay: i * 0.1,
+        type: "spring",
+        damping: 12,
+        stiffness: 200
+      }
+    })
+  };
+
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="md:col-span-2">
-            <div className="flex items-center mb-4">
-              <div className="text-2xl font-bold">CareerPath</div>
-            </div>
-            <p className="text-gray-400 mb-6 max-w-md">
-              Guiding students to brighter futures.
-            </p>
-            <p className="text-gray-500 text-sm">
-              © 2024 CareerPath. All rights reserved.
-            </p>
+    <motion.footer
+      className="select-none overflow-hidden border-t border-orange-900 bg-[#000000]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="container mx-auto px-10 mb-10">
+        <motion.div
+          className="w-full mt-12 flex justify-center items-center relative"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+        >
+          <div className="relative w-fit">
+            <div className="absolute inset-0 w-full h-full blur-2xl opacity-10 bg-gradient-to-r from-[#FF7D0C] via-[#EA580C] to-[#FE9332] z-0 "></div>
+            <h1
+              className="relative text-6xl md:text-[8rem] lg:text-[10rem] font-black text-[#EA580C] z-10 flex"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 90%)",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "100% 100%",
+              }}
+            >
+              {text.split("").map((char, index) => (
+                <motion.span
+                  key={`${key}-${index}`}
+                  custom={index}
+                  variants={characterVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="inline-block "
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </h1>
           </div>
-
-          {/* Company Links */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Company</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-            </ul>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Legal</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom divider (optional) */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-          <p>Empowering the next generation of professionals</p>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

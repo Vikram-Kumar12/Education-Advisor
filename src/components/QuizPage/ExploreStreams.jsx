@@ -6,7 +6,7 @@ const ExploreStreams = ({ selectedStream }) => {
   const [activeTab, setActiveTab] = useState('career-options');
   
   // Default to Science if no stream is selected
-  const stream = selectedStream || 'Vocational';
+  const stream = selectedStream || 'Science';
   
   // Sample data for different streams
   const streamData = {

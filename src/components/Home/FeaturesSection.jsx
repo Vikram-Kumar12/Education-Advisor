@@ -1,79 +1,93 @@
-import React from "react";
+import { IoIosRocket, IoIosMap, IoIosSchool, IoIosCalendar } from "react-icons/io";
+
+const features = [
+  {
+    title: "Personalized Course Suggestions",
+    desc: "Receive tailored recommendations based on your interests and aptitudes.",
+    code: "getCourseSuggestions({ interests, aptitudes })",
+    icon: <IoIosRocket className="text-orange-500 text-2xl" />,
+    color: "orange"
+  },
+  {
+    title: "Course-to-Career Path Maps",
+    desc: "Visualize clear career trajectories stemming from various academic paths.",
+    code: "mapCareerPaths({ academicPaths, visualize: true })",
+    icon: <IoIosMap className="text-blue-500 text-2xl" />,
+    color: "blue"
+  },
+  {
+    title: "Nearby Government Colleges Directory",
+    desc: "Explore an extensive list of government colleges in your vicinity.",
+    code: "findColleges({ type: 'government', radius: '50km' })",
+    icon: <IoIosSchool className="text-green-500 text-2xl" />,
+    color: "green"
+  },
+  {
+    title: "Timeline & Scholarship Tracker",
+    desc: "Stay updated on key dates and discover scholarship opportunities.",
+    code: "trackTimeline({ dates: 'important', scholarships: true })",
+    icon: <IoIosCalendar className="text-purple-500 text-2xl" />,
+    color: "purple"
+  }
+];
+
+const FeatureCard = ({ title, desc, code, icon, color }) => {
+  const colorClasses = {
+    orange: "border-orange-500/30",
+    blue: "border-blue-500/30",
+    green: "border-green-500/30",
+    purple: "border-purple-500/30"
+  };
+
+  return (
+    <div className={`bg-black border ${colorClasses[color]} rounded-xl p-5 text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-${color}-500/10`}>
+      {/* Terminal-style header */}
+      <div className="flex items-center space-x-2 mb-4">
+        <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+        <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>
+        <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+        <span className="ml-2 text-xs text-gray-400">feature.js</span>
+      </div>
+
+      <div className="flex items-start gap-3 mb-4">
+        <div className="p-2 bg-gray-800 rounded-lg">
+          {icon}
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-1">{title}</h3>
+          <p className="text-gray-400 text-sm">{desc}</p>
+        </div>
+      </div>
+
+      <hr className="border-gray-700 mb-4" />
+      
+      <div className="bg-gray-900 text-sm text-blue-300 font-mono px-4 py-3 rounded-lg overflow-x-auto">
+        {code}
+      </div>
+    </div>
+  );
+};
 
 const FeaturesSection = () => {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Key Features Designed For Your Success
-          </h2>
-          <p className="text-lg text-gray-600">
+    <section id="features" className="py-16 bg-black px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="relative inline-block mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white relative z-10">
+              Key Features Designed For Your Success
+            </h2>
+            <div className="absolute inset-0 opacity-30 lg:opacity-70 blur-2xl z-0 bg-[#EA580C]"></div>
+          </div>
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Our comprehensive tools and resources help you make informed decisions about your education and career path.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Feature 1 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="flex items-start mb-6">
-              <div className="bg-blue-100 p-3 rounded-lg mr-5">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Personalized Course Suggestions</h3>
-                <p className="text-gray-600">Receive tailored recommendations based on your interests and aptitudes.</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Feature 2 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="flex items-start mb-6">
-              <div className="bg-green-100 p-3 rounded-lg mr-5">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Course-to-Career Path Maps</h3>
-                <p className="text-gray-600">Visualize clear career trajectories stemming from various academic paths.</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Feature 3 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="flex items-start mb-6">
-              <div className="bg-purple-100 p-3 rounded-lg mr-5">
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Nearby Government Colleges Directory</h3>
-                <p className="text-gray-600">Explore an extensive list of government colleges in your vicinity.</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Feature 4 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <div className="flex items-start mb-6">
-              <div className="bg-orange-100 p-3 rounded-lg mr-5">
-                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Timeline & Scholarship Tracker</h3>
-                <p className="text-gray-600">Stay updated on key dates and discover scholarship opportunities.</p>
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
         </div>
       </div>
     </section>
