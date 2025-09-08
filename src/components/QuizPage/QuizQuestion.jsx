@@ -82,8 +82,9 @@ const QuizQuestion = () => {
     );
   }
 
-  const question =
-    questions.find((q) => q._id === currentQuestion) || questions[2];
+   const question = questions[currentQuestion - 1];
+   
+  
 
   const handleOptionSelect = (optionIndex) => {
     setSelectedOption(optionIndex);

@@ -10,7 +10,6 @@ import TimelineContent from './TimelineContent';
 import ResourcesContent from './ResourcesContent';
 import SettingsContent from './SettingsContent';
 import CollegeSearch from "..//College/CollegeSearch"
-
 const MainContent = ({ activeItem }) => {
   // Map menu items to their respective components
   const componentMap = {

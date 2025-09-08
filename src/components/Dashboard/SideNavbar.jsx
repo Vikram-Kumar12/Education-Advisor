@@ -9,6 +9,9 @@ import {
   Settings,
   X,
   Menu,
+   MessageSquare,
+  Users,
+  MapPin,
 } from "lucide-react";
 
 const SideNavbar = ({
@@ -24,6 +27,9 @@ const SideNavbar = ({
     { id: "colleges", label: "Colleges", icon: School },
     { id: "timeline", label: "Timeline", icon: Calendar },
     { id: "resources", label: "Resources", icon: FileText },
+      { id: "chat-with-ai", label: "Chat with AI", icon: MessageSquare },
+    { id: "book-mentor", label: "Book a Mentor", icon: Users },
+    { id: "book-nearby", label: "Session Nearby", icon: MapPin },
     // { id: "settings", label: "Settings", icon: Settings },
   ];
 
