@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import DashboardContent from './DashboardContent';
 import QuizContent from './QuizContent';
 import CoursesContent from './CoursesContent';
-import CollegesContent from './CollegesContent';
+// import CollegesContent from './CollegesContent';
 import TimelineContent from './TimelineContent';
 import ResourcesContent from './ResourcesContent';
 import SettingsContent from './SettingsContent';
+import CollegeSearch from "..//College/CollegeSearch"
 
 const MainContent = ({ activeItem }) => {
   // Map menu items to their respective components
@@ -16,7 +17,7 @@ const MainContent = ({ activeItem }) => {
     dashboard: DashboardContent,
     quiz: QuizContent,
     courses: CoursesContent,
-    colleges: CollegesContent,
+    colleges: CollegeSearch,
     timeline: TimelineContent,
     resources: ResourcesContent,
     settings: SettingsContent

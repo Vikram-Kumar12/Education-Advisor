@@ -111,7 +111,7 @@ const QuizQuestion = () => {
           const response = await submitQuiz({ answers: newAnswers });
           console.log("Submission successful:", response.data);
           // Redirect to dashboard or confirmation page
-          navigate('/dashboard');
+          navigate('/quize-result');
         } catch (error) {
           console.error("Error submitting quiz:", error);
         }

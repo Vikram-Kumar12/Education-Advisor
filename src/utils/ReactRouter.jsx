@@ -14,6 +14,7 @@ import VocationalStream from "../components/QuizPage/VocationalStream";
 import DashboardPage from "../pages/DashboardPage";
 
 
+
 const ReactRouter = () => {
   return (
     <>
@@ -21,17 +22,21 @@ const ReactRouter = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Register/>}/>
-        <Route path="/quize" element={<QuizePage/>}/>
-        <Route path="/start-quize" element={<QuizQuestion/>}/>
-        <Route path="/shape-it" element={<ShapeIt/>}/>
-        <Route path="/dashboard" element={<DashboardPage/>}/>
-        <Route path="/quize-result" element={<QuizResults/>}/>
-        <Route path="/science-stream" element={<ScienceStream/>}/>
-        <Route path="/commerce-stream" element={<CommerceStream/>}/>
-        <Route path="/arts-stream" element={<ArtsStream/>}/>
-        <Route path="/vocational-stream" element={<VocationalStream/>}/>
-        
-      </Routes>
+
+
+       
+        <Route path="/quize" element={<QuizePage />} />
+        <Route path="/start-quize" element={<QuizQuestion />} />
+        <Route path="/shape-it" element={<ShapeIt />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/quize-result" element={<QuizResults />} />
+        <Route path="/science-stream" element={<ScienceStream />} />
+        <Route path="/commerce-stream" element={<CommerceStream />} />
+        <Route path="/arts-stream" element={<ArtsStream />} />
+        <Route path="/vocational-stream" element={<VocationalStream />} />
+   
+           </Routes>
+  
     </>
   );
 };
