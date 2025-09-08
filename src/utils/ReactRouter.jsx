@@ -17,6 +17,10 @@ import CollegeList from "../components/College/CollegeList";
 import CollegeDetails from "../components/College/CollegeDetails";
 import Profile from "../pages/Profile";
 
+import CollegeList from "../components/College/CollegeList";
+import CollegeDetails from "../components/College/CollegeDetails";
+import Profile from "../pages/Profile";
+
 const ReactRouter = () => {
   return (
     <>
