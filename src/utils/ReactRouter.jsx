@@ -16,10 +16,9 @@ import DashboardPage from "../pages/DashboardPage";
 import CollegeList from "../components/College/CollegeList";
 import CollegeDetails from "../components/College/CollegeDetails";
 import Profile from "../pages/Profile";
-
-import CollegeList from "../components/College/CollegeList";
-import CollegeDetails from "../components/College/CollegeDetails";
-import Profile from "../pages/Profile";
+import BookSessionMentor from "../components/chatbot/BookSessionMentor";
+import BookSessionNearby from "../components/chatbot/BookSessionNearby";
+import RoadmapGenerator from "../components/RoadmapGenerator";
 
 const ReactRouter = () => {
   return (
@@ -40,6 +39,9 @@ const ReactRouter = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/college-list" element={<CollegeList />} />
         <Route path="/college-details" element={<CollegeDetails />} />
+        <Route path="/book-mentor" element={<BookSessionMentor />} />
+        <Route path="/book-nearby" element={<BookSessionNearby />} />
+        <Route path="/roadmap-generator" element={<RoadmapGenerator />} />
       </Routes>
     </>
   );

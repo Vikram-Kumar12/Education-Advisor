@@ -4,6 +4,11 @@ import TimelineContent from './TimelineContent';
 import ResourcesContent from './ResourcesContent';
 import CollegeSearch from "../College/CollegeSearch"
 import QuizResults from '../QuizPage/QuizResults';
+import BookSessionMentor from '../chatbot/BookSessionMentor';
+import BookSessionNearby from '../chatbot/BookSessionNearby';
+import RoadmapGenerator from '../RoadmapGenerator';
+
+
 
 const MainContent = ({ activeItem }) => {
   const componentMap = {
@@ -12,6 +17,9 @@ const MainContent = ({ activeItem }) => {
     colleges: CollegeSearch,
     timeline: TimelineContent,
     resources: ResourcesContent,
+     'book-mentor': BookSessionMentor,
+    'book-nearby': BookSessionNearby,
+     roadmap: RoadmapGenerator,
   };
 
   // Get the component to render based on activeItem

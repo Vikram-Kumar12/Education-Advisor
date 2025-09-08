@@ -179,6 +179,7 @@ const ResourcesContent = () => {
         eligibility: "International Student, GPA 3.5+",
       },
     ],
+    
   };
 
   // Animation for tab switching
@@ -297,6 +298,7 @@ const ResourcesContent = () => {
                         </span>
                       </>
                     )}
+                   
                   </div>
 
                   <motion.button
