@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Mail, Lock, BookOpen } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import {loginUser} from "../../Services/userApiCalling"
+import { loginUser } from "../../Services/userApiCalling";
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -11,7 +11,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -23,15 +23,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await loginUser(formData)
-    if(response.data.success){
-      localStorage.setItem('token',response.data.token)
-      navigate('/quize')
-
+    const response = await loginUser(formData);
+    if (response.data.success) {
+      localStorage.setItem("token", response.data.token);
+      navigate("/quize");
     }
-
-
-    
   };
 
   const togglePasswordVisibility = () => {

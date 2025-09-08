@@ -100,7 +100,7 @@ const TimelineContent = () => {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen p-6 font-sans">
+    <div className="border bg-gray-900 border-gray-800 rounded-md text-white min-h-screen p-6 font-sans">
       <h1 className="text-3xl font-bold text-orange-500 mb-8 text-center">Academic Timeline</h1>
       
       {/* Categories */}
@@ -118,7 +118,7 @@ const TimelineContent = () => {
         {timelineData.map((monthData, index) => (
           <div key={index} className="border-l-2 border-orange-500 pl-6 relative">
             {/* Month Header */}
-            <h2 className="text-2xl font-bold text-orange-400 mb-6 sticky top-0 bg-black py-2 z-10">
+            <h2 className="text-2xl font-bold text-orange-400 mb-6 sticky top-0 border px-10 border-gray-800 rounded-md py-2 z-10">
               {monthData.month}
             </h2>
             
@@ -127,7 +127,7 @@ const TimelineContent = () => {
               {monthData.events.map((event, eventIndex) => (
                 <div key={eventIndex} className="relative">
                   {/* Date marker */}
-                  <div className="absolute -left-9 w-6 h-6 rounded-full bg-orange-500 border-4 border-black"></div>
+                  <div className="absolute -left-9 w-6 h-6 rounded-full bg-orange-500 border-4 border-orange-500"></div>
                   
                   <div className="bg-gray-900 p-5 rounded-lg border-l-4 border-orange-500">
                     <div className="flex items-center mb-2">
@@ -151,10 +151,7 @@ const TimelineContent = () => {
               ))}
             </div>
             
-            {/* Separator */}
-            {index < timelineData.length - 1 && (
-              <div className="h-8 border-l-2 border-orange-500 ml-[-2px]"></div>
-            )}
+           
           </div>
         ))}
       </div>

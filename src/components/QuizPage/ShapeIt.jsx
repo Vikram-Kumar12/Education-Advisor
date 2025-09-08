@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { shape } from "../../Services/Quiz";
+import { Link } from "react-router-dom";
 
 const ShapeIt = () => {
   const [inputText, setInputText] = useState("");
@@ -9,11 +10,9 @@ const ShapeIt = () => {
     e.preventDefault();
     console.log("Submitted text:", inputText);
 
-    const dream = inputText
-    const response  = await shape({dream})
-    console.log(response.data.data.streams)
-    
-
+    const dream = inputText;
+    const response = await shape({ dream });
+    console.log(response.data.data.streams);
   };
 
   return (
@@ -88,13 +87,16 @@ const ShapeIt = () => {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={!inputText.trim()}
-              className={`w-full py-3 px-4 rounded-lg font-semibold transition duration-200 border ${
-                !inputText.trim()
-                  ? "bg-gray-800 text-gray-500 cursor-not-allowed border-gray-700"
-                  : "bg-gradient-to-r from-orange-600 to-orange-700 text-white hover:from-orange-700 hover:to-orange-800 border-orange-500/30"
-              }`}
             >
-              Submit
+              <Link
+                className={`w-full py-3 px-4 rounded-lg font-semibold transition duration-200 border ${
+                  !inputText.trim()
+                    ? "bg-gray-800 text-gray-500 cursor-not-allowed border-gray-700"
+                    : "bg-gradient-to-r from-orange-600 to-orange-700 text-white hover:from-orange-700 hover:to-orange-800 border-orange-500/30"
+                }`}
+                to="/dashboard"
+              >Submit</Link>
+              
             </motion.button>
           </form>
         </div>

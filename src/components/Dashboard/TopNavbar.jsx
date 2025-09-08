@@ -1,4 +1,4 @@
-import { User} from "lucide-react";
+import { User } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const TopNavbar = () => {
@@ -11,11 +11,16 @@ const TopNavbar = () => {
       </div>
 
       <div className="flex items-center space-x-3">
-        <Link className="flex items-center space-x-2 p-2 bg-gray-800 rounded-lg hover:bg-gray-700">
+        <Link
+          to="/profile"
+          className="flex items-center space-x-2 p-2 bg-gray-800 rounded-lg hover:bg-gray-700"
+        >
           <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center">
             <User className="h-4 w-4 text-white" />
           </div>
-          <span className="hidden sm:inline text-sm font-medium">John Doe</span>
+          <span className="hidden sm:inline text-sm font-medium">
+            Vikram Kumar
+          </span>
         </Link>
       </div>
     </header>

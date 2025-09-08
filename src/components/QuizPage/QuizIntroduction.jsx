@@ -1,7 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
-  BookOpen,
   ArrowRight,
   Brain,
   Target,
@@ -95,7 +93,10 @@ const QuizIntroduction = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to='/shape-it' className="w-full md:w-auto bg-gradient-to-r from-orange-600 to-orange-700 text-white lg:py-4  py-5 lg:px-8 px-17  rounded-lg font-semibold text-lg shadow-md hover:shadow-orange-500/20 transition duration-200 flex items-center justify-center border border-orange-500/30">
+                <Link
+                  to="/shape-it"
+                  className="w-full md:w-auto bg-gradient-to-r from-orange-600 to-orange-700 text-white lg:py-4  py-5 lg:px-8 px-17  rounded-lg font-semibold text-lg shadow-md hover:shadow-orange-500/20 transition duration-200 flex items-center justify-center border border-orange-500/30"
+                >
                   Shape it
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

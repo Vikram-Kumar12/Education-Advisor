@@ -15,18 +15,15 @@ import DashboardPage from "../pages/DashboardPage";
 
 import CollegeList from "../components/College/CollegeList";
 import CollegeDetails from "../components/College/CollegeDetails";
-
+import Profile from "../pages/Profile";
 
 const ReactRouter = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<Register/>}/>
-
-
-       
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Register />} />
         <Route path="/quize" element={<QuizePage />} />
         <Route path="/start-quize" element={<QuizQuestion />} />
         <Route path="/shape-it" element={<ShapeIt />} />
@@ -36,9 +33,10 @@ const ReactRouter = () => {
         <Route path="/commerce-stream" element={<CommerceStream />} />
         <Route path="/arts-stream" element={<ArtsStream />} />
         <Route path="/vocational-stream" element={<VocationalStream />} />
-   
-           </Routes>
-  
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/college-list" element={<CollegeList />} />
+        <Route path="/college-details" element={<CollegeDetails />} />
+      </Routes>
     </>
   );
 };

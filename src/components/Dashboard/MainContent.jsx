@@ -1,21 +1,14 @@
 import { motion, AnimatePresence } from 'framer-motion';
-
-// Import your existing components
 import DashboardContent from './DashboardContent';
-import QuizContent from './QuizContent';
-import CoursesContent from './CoursesContent';
-// import CollegesContent from './CollegesContent';
 import TimelineContent from './TimelineContent';
 import ResourcesContent from './ResourcesContent';
-import SettingsContent from './SettingsContent';
-import CollegeSearch from "..//College/CollegeSearch"
+import CollegeSearch from "../College/CollegeSearch"
+import QuizResults from '../QuizPage/QuizResults';
 
 const MainContent = ({ activeItem }) => {
-  // Map menu items to their respective components
   const componentMap = {
     dashboard: DashboardContent,
-    quiz: QuizContent,
-    courses: CoursesContent,
+    courses: QuizResults,
     colleges: CollegeSearch,
     timeline: TimelineContent,
     resources: ResourcesContent,
