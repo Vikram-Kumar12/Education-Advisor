@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CTASection = () => {
   return (
     // bg-gradient-to-r from-gray-900 via-black to-gray-900
@@ -38,9 +40,10 @@ const CTASection = () => {
         </div>
 
         {/* CTA Button */}
-        <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-lg px-8 py-4 rounded-lg shadow-lg hover:from-orange-600 hover:to-orange-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-orange-400/30 relative group cursor-pointer">
-          <span className="relative z-10">Start Your Journey Now</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <button >
+          <Link to='/signup' className="bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-lg px-8 py-4 rounded-lg shadow-lg hover:from-orange-600 hover:to-orange-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-orange-400/30 relative group cursor-pointer">Start Your Journey Now</Link>
+          {/* <span className="relative z-10">Start Your Journey Now</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div> */}
         </button>
 
         {/* Additional reassurance text */}

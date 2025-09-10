@@ -11,7 +11,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="px-4 py-3 bg-[#1b1b1b] text-sm text-white rounded-lg border border-gray-700 mb-4 flex items-center justify-center gap-3"
         >
-          🔒 Trusted by 1.5M Students{" "}
+          🔒 Trusted by 6 Students{" "}
           <motion.span
             className="w-2 h-2 bg-red-600 rounded-full"
             animate={{ opacity: [1, 0, 1] }}
